@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KENZ STORE | STORE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>KENZ STORE | QRIS LANGSUNG</title>
   <style>
     * {
       margin: 0;
@@ -14,7 +12,7 @@
     }
 
     body {
-      font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       min-height: 100vh;
       background: #0b0c1a;
       color: white;
@@ -84,156 +82,6 @@
       100% { transform: scale(1.1) rotate(5deg); opacity: 0.9; }
     }
 
-    /* ===== DIALOG AWAL (INTRO) ===== */
-    .dialog-awal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1);
-        width: 90%;
-        max-width: 420px;
-        background: rgba(10, 15, 35, 0.5);
-        backdrop-filter: blur(30px) saturate(180%);
-        -webkit-backdrop-filter: blur(30px) saturate(180%);
-        border-radius: 40px;
-        padding: 40px 25px;
-        border: 1px solid rgba(120, 180, 255, 0.4);
-        border-bottom-width: 2px;
-        border-right-width: 2px;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
-        color: white;
-        text-align: center;
-        z-index: 100;
-        transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .dialog-awal.hidden {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.95);
-        pointer-events: none;
-    }
-
-    /* Logo bulat */
-    .logo-circle {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto 20px;
-        background: rgba(255, 255, 255, 0.12);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        font-size: 48px;
-        font-weight: 700;
-        color: white;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        overflow: hidden;
-    }
-    
-    .logo-circle img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-    }
-
-    .nama {
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 5px;
-        text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-    }
-
-    .credit {
-        font-size: 14px;
-        opacity: 0.8;
-        margin-bottom: 25px;
-    }
-
-    .waktu {
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        padding: 12px 20px;
-        border-radius: 40px;
-        margin-bottom: 25px;
-        font-size: 18px;
-        font-weight: 500;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        display: inline-block;
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .tombol-dua {
-        display: flex;
-        gap: 15px;
-        margin: 30px 0 20px;
-    }
-
-    .tombol-action {
-        flex: 1;
-        background: rgba(30, 60, 120, 0.4);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1.5px solid rgba(255, 255, 255, 0.35);
-        border-bottom-width: 2px;
-        border-right-width: 2px;
-        padding: 16px 10px;
-        border-radius: 40px;
-        color: white;
-        font-weight: 600;
-        font-size: 16px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        transition: all 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .tombol-action:active {
-        background: rgba(70, 130, 250, 0.5);
-        transform: scale(0.97);
-        border-color: rgba(255, 255, 255, 0.7);
-    }
-
-    .tombol-action i {
-        font-size: 18px;
-    }
-
-    .tombol-kembali {
-        width: 50px;
-        height: 50px;
-        background: rgba(255, 70, 70, 0.3);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border: 1.5px solid rgba(255, 255, 255, 0.4);
-        border-radius: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 22px;
-        cursor: pointer;
-        margin: 20px auto 0;
-        transition: all 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .tombol-kembali:active {
-        background: rgba(255, 70, 70, 0.5);
-        transform: scale(0.95) rotate(90deg);
-    }
-
-    /* ===== KONTEN UTAMA (setelah intro hilang) ===== */
     .content {
       position: relative;
       z-index: 10;
@@ -241,14 +89,6 @@
       margin: 0 auto;
       padding: 20px 15px 30px;
       backdrop-filter: blur(2px);
-      opacity: 0;
-      transition: opacity 0.7s ease;
-      pointer-events: none;
-    }
-
-    .content.visible {
-      opacity: 1;
-      pointer-events: auto;
     }
 
     .glass {
@@ -554,33 +394,10 @@
     <div class="nebula"></div>
   </div>
 
-  <!-- DIALOG AWAL (INTRO) -->
-  <div class="dialog-awal" id="dialogAwal">
-    <!-- Logo bulat dengan logo.png -->
-    <div class="logo-circle">
-      <img src="logo.png" alt="logo">
-    </div>
-    
-    <div class="nama">arsalwaysss</div>
-    <div class="credit">web ini dibuat oleh arsalwaysss</div>
-    
-    <div class="waktu" id="liveTime">--:--:--</div>
-    
-    <div class="tombol-dua">
-        <button class="tombol-action" id="saweriaBtn"><i class="fas fa-coffee"></i> Owner</button>
-        <button class="tombol-action" id="saluranBtn"><i class="fab fa-whatsapp"></i> Saluran</button>
-    </div>
-    
-    <div class="tombol-kembali" id="tombolKembali">
-        <i class="fas fa-times"></i>
-    </div>
-  </div>
-
-  <!-- KONTEN UTAMA (store) -->
-  <div class="content" id="mainContent">
+  <div class="content">
     <div class="hero glass">
       <h1>🌀 KENZ STORE VIP</h1>
-      <p>Pilih lalu checkout via WA</p>
+      <p>liquid galaxy • pilih lalu checkout via WA</p>
     </div>
 
     <div class="tabs" id="tabs"></div>
@@ -592,45 +409,18 @@
       <div id="cartList"></div>
       <div class="total" id="total">Total: Rp 0</div>
       
+      <!-- AREA PEMBAYARAN -->
       <div class="payment-area" id="paymentArea"></div>
+
+      <!-- TEMPAT UNTUK MENAMPILKAN INFO NOMOR / QRIS LANGSUNG -->
       <div id="paymentHint" class="payment-hint"></div>
+
+      <!-- KONTAINER TOMBOL CHECKOUT -->
       <div id="dynamicCheckout" class="checkout-container"></div>
     </div>
   </div>
 
   <script>
-    // ===== BAGIAN INTRO =====
-    // Waktu real-time
-    function updateTime() {
-        const now = new Date();
-        const timeString = now.toLocaleTimeString('id-ID', { hour12: false });
-        const liveTimeEl = document.getElementById('liveTime');
-        if (liveTimeEl) liveTimeEl.innerText = timeString;
-    }
-    updateTime();
-    setInterval(updateTime, 1000);
-
-    const dialogAwal = document.getElementById('dialogAwal');
-    const mainContent = document.getElementById('mainContent');
-    const tombolKembali = document.getElementById('tombolKembali');
-
-    tombolKembali.addEventListener('click', function() {
-        dialogAwal.classList.add('hidden');
-        setTimeout(function() {
-            mainContent.classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 700); // sesuai durasi transisi
-    });
-
-    document.getElementById('OwnerBtn').addEventListener('click', function() {
-        window.open('https://wa.me/6288268364289', '_blank');
-    });
-
-    document.getElementById('saluranBtn').addEventListener('click', function() {
-        window.open('https://whatsapp.com/channel/0029Vb7MZBb2phHF5fCqmM0Z', '_blank');
-    });
-
-    // ===== BAGIAN STORE (dari kode kedua, disesuaikan) =====
     const phone = "6288268364289";
     
     const paymentMethods = [
@@ -702,7 +492,6 @@
 
     function renderTabs() {
       const tabs = document.getElementById("tabs");
-      if (!tabs) return;
       tabs.innerHTML = "";
       Object.keys(data).forEach(cat => {
         let btn = document.createElement("button");
@@ -719,7 +508,6 @@
 
     function renderProducts() {
       const grid = document.getElementById("grid");
-      if (!grid) return;
       grid.innerHTML = "";
       data[active].forEach((p, i) => {
         let card = document.createElement("div");
@@ -727,20 +515,19 @@
         card.innerHTML = `
           <h3>${p.name}</h3>
           <div class="price">${rupiah(p.price)}</div>
-          <button class="add" onclick="addToCart(${i})">Tambah ke keranjang</button>
+          <button class="add" onclick="add(${i})">Tambah ke keranjang</button>
         `;
         grid.appendChild(card);
       });
     }
 
-    window.addToCart = function(i) {
+    function add(i) {
       cart.push(data[active][i]);
       renderCart();
     }
 
     function renderCart() {
-      const list = document.getElementById("cartList");
-      if (!list) return;
+      let list = document.getElementById("cartList");
       list.innerHTML = "";
       cart.forEach(item => {
         let d = document.createElement("div");
@@ -753,7 +540,6 @@
 
     function renderPaymentOptions() {
       const area = document.getElementById("paymentArea");
-      if (!area) return;
       area.innerHTML = "";
 
       paymentMethods.forEach(m => {
@@ -790,6 +576,7 @@
         return;
       }
 
+      // HINT dengan tampilan berbeda untuk wallet dan qris
       if (selectedPayment.type === 'wallet') {
         hintDiv.innerHTML = `
           <div class="wallet-info">
@@ -800,7 +587,7 @@
         
         checkoutContainer.innerHTML = `<button class="checkout-btn" onclick="checkoutWithWA('${selectedPayment.label}')">✨ Checkout via WA (${selectedPayment.label})</button>`;
       
-      } else { // QRIS
+      } else { // QRIS - tampilkan gambar langsung
         hintDiv.innerHTML = `
           <div class="qris-container">
             <img src="${selectedPayment.imageUrl}" alt="QRIS Pembayaran" class="qris-image" onclick="window.open('${selectedPayment.imageUrl}', '_blank')" style="cursor: pointer;">
@@ -815,7 +602,7 @@
       }
     }
 
-    window.checkoutWithWA = function(paymentLabel = null) {
+    function checkoutWithWA(paymentLabel = null) {
       if (cart.length === 0) {
         alert("Keranjang kosong");
         return;
@@ -843,14 +630,14 @@
       window.open(`https://wa.me/${phone}?text=${msg}`);
     }
 
-    function initStore() {
+    function init() {
       renderTabs();
       renderProducts();
       renderPaymentOptions();
       updateHintAndButtons();
     }
 
-    initStore();
+    init();
   </script>
 </body>
 </html>
