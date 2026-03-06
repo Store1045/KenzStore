@@ -1,370 +1,856 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>RIZKY STORE REAL - List Diskon</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KENZ STORE | QRIS LANGSUNG + INTRO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-    min-height: 100vh;
-    background: #000;
-    color: #fff;
-    position: relative;
-    overflow-x: hidden;
-}
+    body {
+      font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      background: #0b0c1a;
+      color: white;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-/* Video Background - full screen tanpa batasan */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden;
-}
+    /* 🌌 GALAXY BACKGROUND */
+    .galaxy-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: radial-gradient(ellipse at 40% 50%, #1a1f3a, #030514);
+      overflow: hidden;
+    }
 
-.video-background video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    filter: brightness(0.65) saturate(1.3);
-}
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background: transparent url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48Y2lyY2xlIGN4PSI2IiBjeT0iMTQiIHI9IjEuMiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNyIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iMjAiIHI9IjEuNyIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45Ii8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iODAiIHI9IjIuMiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC44Ii8+PGNpcmNsZSBjeD0iMjUwIiBjeT0iMTUwIiByPSIxLjUiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNiIvPjxjaXJjbGUgY3g9IjcwIiBjeT0iMjUwIiByPSIxLjgiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNSIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjUwIiByPSIxLjkiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjE4MCIgcj0iMS4xIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjUiLz48Y2lyY2xlIGN4PSIyOTAiIGN5PSIyMDAiIHI9IjIuMCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC44Ii8+PC9zdmc+') repeat;
+      background-size: 450px 450px;
+      opacity: 0.7;
+      animation: drift 120s linear infinite;
+      pointer-events: none;
+    }
 
-/* Overlay lebih tipis */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(2px);
-    z-index: 1;
-}
+    .stars2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background: transparent url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjQwIiByPSIyLjUiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMiIvPjxjaXJjbGUgY3g9IjQwMCIgY3k9IjMwMCIgcj0iMy4wIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjE1Ii8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iNDUwIiByPSIxLjgiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMTgiLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjE4MCIgcj0iMi4yIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjI1Ii8+PC9zdmc+') repeat;
+      background-size: 700px 700px;
+      opacity: 0.4;
+      animation: drift 200s linear reverse infinite;
+      pointer-events: none;
+    }
 
-/* Konten utama - full width dengan padding lega */
-.container {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 100%; /* hilangkan batasan lebar */
-    padding: 20px 16px; /* padding tetap proporsional */
-    margin: 0 auto;
-}
+    .nebula {
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      width: 130%;
+      height: 130%;
+      background: radial-gradient(circle at 20% 30%, rgba(100, 70, 200, 0.08) 0%, transparent 35%),
+                  radial-gradient(circle at 80% 70%, rgba(30, 120, 210, 0.1) 0%, transparent 45%),
+                  radial-gradient(circle at 10% 80%, rgba(180, 130, 255, 0.06) 0%, transparent 40%);
+      filter: blur(40px);
+      animation: slowRotate 180s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
 
-/* Header lebih lebar dan proporsional */
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    color: #ffffff;
-    text-shadow: 0 2px 15px rgba(0,0,0,0.4);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    padding: 16px 24px;
-    border-radius: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    width: fit-content;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
+    @keyframes drift {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(-50%) translateY(-5%); }
+    }
 
-.section {
-    margin-bottom: 35px;
-    width: 100%;
-}
+    @keyframes slowRotate {
+      0% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+      100% { transform: scale(1.1) rotate(5deg); opacity: 0.9; }
+    }
 
-.section h2 {
-    margin-bottom: 16px;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: rgba(255, 255, 255, 0.95);
-    padding-left: 8px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    backdrop-filter: blur(5px);
-    display: inline-block;
-    padding-right: 20px;
-}
+    /* ===== DIALOG AWAL (INTRO) ===== */
+    .dialog-awal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        width: 90%;
+        max-width: 420px;
+        background: rgba(10, 15, 35, 0.5);
+        backdrop-filter: blur(30px) saturate(180%);
+        -webkit-backdrop-filter: blur(30px) saturate(180%);
+        border-radius: 40px;
+        padding: 40px 25px;
+        border: 1px solid rgba(120, 180, 255, 0.4);
+        border-bottom-width: 2px;
+        border-right-width: 2px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+        color: white;
+        text-align: center;
+        z-index: 100;
+        transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity: 1;
+        pointer-events: auto;
+    }
 
-/* Card dengan ukuran penuh dan proporsional */
-.card {
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
-    border-radius: 28px;
-    padding: 22px 20px;
-    margin-bottom: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 0.5px rgba(255, 255, 255, 0.1) inset;
-    color: #fff;
-    width: 100%;
-    transition: all 0.2s ease;
-}
+    .dialog-awal.hidden {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.95);
+        pointer-events: none;
+    }
 
-.card:hover {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: rgba(255, 255, 255, 0.4);
-}
-
-.item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-    margin-bottom: 14px;
-    padding: 6px 0;
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
-}
-
-.item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
-.item span:first-child {
-    font-weight: 500;
-    opacity: 0.95;
-    flex: 1;
-    padding-right: 10px;
-}
-
-.old {
-    text-decoration: line-through;
-    opacity: 0.6;
-    margin-right: 8px;
-    font-size: 14px;
-}
-
-.new {
-    color: #30ffb0;
-    font-weight: 700;
-    font-size: 16px;
-    background: rgba(0, 255, 200, 0.15);
-    padding: 6px 12px;
-    border-radius: 30px;
-    border: 0.5px solid rgba(48, 255, 176, 0.3);
-    display: inline-block;
-    min-width: 65px;
-    text-align: center;
-}
-
-/* Badge lebih besar dan lega */
-.badge {
-    display: inline-block;
-    background: rgba(48, 255, 176, 0.2);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: 50px;
-    font-size: 14px;
-    margin: 6px 8px 6px 0;
-    font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
-    letter-spacing: 0.3px;
-}
-
-/* Note card lebih lega */
-.note {
-    font-size: 15px;
-    line-height: 1.7;
-    opacity: 1;
-    font-weight: 500;
-    background: rgba(255, 59, 48, 0.15);
-    border-left: 5px solid #ff3b30;
-    border-radius: 24px;
-    padding: 20px;
-}
-
-/* Button besar dan nyaman */
-button {
-    width: 100%;
-    padding: 18px 16px;
-    border: none;
-    border-radius: 50px;
-    background: rgba(0, 122, 255, 0.5);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
-    color: white;
-    font-weight: 600;
-    font-size: 18px;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    margin-top: 25px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 0.5px rgba(255, 255, 255, 0.2) inset;
-    transition: all 0.2s;
-}
-
-button:hover {
-    background: rgba(0, 122, 255, 0.7);
-    backdrop-filter: blur(35px);
-    transform: scale(1.02);
-}
-
-footer {
-    text-align: center;
-    font-size: 13px;
-    opacity: 0.7;
-    margin-top: 40px;
-    padding: 16px 20px;
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(20px);
-    border-radius: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 100%;
-}
-
-/* Payment card spesial */
-.card:has(> :only-child:contains("QRIS")) {
-    text-align: center;
-    font-weight: 700;
-    font-size: 22px;
-    padding: 28px 20px;
-    letter-spacing: 2px;
-}
-
-/* Hilangkan batasan lebar pada container di layar besar */
-@media screen and (min-width: 768px) {
-    .container {
-        padding: 20px 32px;
+    /* Logo bulat */
+    .logo-circle {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 20px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        font-size: 48px;
+        font-weight: 700;
+        color: white;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
     }
     
-    h1 {
-        font-size: 26px;
-        padding: 18px 32px;
+    .logo-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
     }
-    
-    .section h2 {
-        font-size: 20px;
-        margin-left: 8px;
-    }
-}
 
-@media screen and (min-width: 1200px) {
-    .container {
-        padding: 20px 48px;
+    .nama {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.4);
     }
-}
 
-/* Fallback */
-@supports not (backdrop-filter: blur(10px)) {
-    .card, h1, .badge, button, footer {
-        background: rgba(25, 25, 35, 0.9);
+    .credit {
+        font-size: 14px;
+        opacity: 0.8;
+        margin-bottom: 25px;
     }
-}
 
-/* Perbaikan untuk tampilan QRIS */
-</style>
+    .waktu {
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        padding: 12px 20px;
+        border-radius: 40px;
+        margin-bottom: 25px;
+        font-size: 18px;
+        font-weight: 500;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: inline-block;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tombol-dua {
+        display: flex;
+        gap: 15px;
+        margin: 30px 0 20px;
+    }
+
+    .tombol-action {
+        flex: 1;
+        background: rgba(30, 60, 120, 0.4);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1.5px solid rgba(255, 255, 255, 0.35);
+        border-bottom-width: 2px;
+        border-right-width: 2px;
+        padding: 16px 10px;
+        border-radius: 40px;
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .tombol-action:active {
+        background: rgba(70, 130, 250, 0.5);
+        transform: scale(0.97);
+        border-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .tombol-action i {
+        font-size: 18px;
+    }
+
+    .tombol-kembali {
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 70, 70, 0.3);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1.5px solid rgba(255, 255, 255, 0.4);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+        margin: 20px auto 0;
+        transition: all 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .tombol-kembali:active {
+        background: rgba(255, 70, 70, 0.5);
+        transform: scale(0.95) rotate(90deg);
+    }
+
+    /* ===== KONTEN UTAMA (setelah intro hilang) ===== */
+    .content {
+      position: relative;
+      z-index: 10;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 15px 30px;
+      backdrop-filter: blur(2px);
+      opacity: 0;
+      transition: opacity 0.7s ease;
+      pointer-events: none;
+    }
+
+    .content.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .glass {
+      background: rgba(10, 15, 30, 0.28);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
+      border: 1px solid rgba(120, 160, 255, 0.2);
+      border-radius: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(210, 230, 255, 0.1) inset, 0 0 30px rgba(70, 130, 255, 0.25);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 30px 20px 25px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      background: linear-gradient(145deg, #b3d9ff, #60a5fa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 30px #3b82f6;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      color: rgba(220, 240, 255, 0.9);
+      font-size: 1.2rem;
+      font-weight: 300;
+      text-shadow: 0 2px 5px #0a0c1a;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 12px 10px;
+      margin-bottom: 12px;
+      scrollbar-width: thin;
+      scrollbar-color: #3b82f6 rgba(20, 30, 55, 0.5);
+    }
+
+    .tabs button {
+      border: none;
+      padding: 10px 22px;
+      border-radius: 40px;
+      background: rgba(20, 30, 55, 0.5);
+      backdrop-filter: blur(12px);
+      color: #f0f5ff;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 10, 30, 0.6), 0 0 0 1px rgba(90, 170, 255, 0.3) inset;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+
+    .tabs button.active {
+      background: rgba(59, 130, 246, 0.65);
+      box-shadow: 0 0 20px #3b82f6, 0 0 0 1px #a0c8ff inset;
+      color: white;
+    }
+
+    .grid {
+      padding: 10px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: rgba(12, 18, 38, 0.35);
+      backdrop-filter: blur(16px) saturate(200%);
+      border: 1px solid rgba(100, 160, 250, 0.25);
+      border-radius: 28px;
+      padding: 20px 16px;
+      box-shadow: 0 15px 30px -10px black, 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(80, 160, 255, 0.7);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 35px -8px #1e3a8a;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(145deg, #b0d6ff, #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 15px;
+      text-shadow: 0 0 20px #2563eb;
+    }
+
+    .add {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 40px;
+      background: rgba(59, 130, 246, 0.5);
+      backdrop-filter: blur(10px);
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 15px #3b82f6;
+      transition: 0.2s;
+    }
+
+    .add:hover {
+      background: #3b82f6;
+      box-shadow: 0 0 30px #3b82f6;
+    }
+
+    .cart {
+      margin: 30px 0 15px;
+      padding: 22px 20px;
+      background: rgba(8, 15, 30, 0.45);
+      backdrop-filter: blur(18px) saturate(200%);
+      border-radius: 40px;
+      border: 1px solid rgba(90, 170, 250, 0.25);
+    }
+
+    .cart h2 {
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #e0f0ff;
+      margin-bottom: 12px;
+    }
+
+    #cartList div {
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(200, 220, 255, 0.2);
+      font-size: 1.05rem;
+    }
+
+    .total {
+      margin: 18px 0 12px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #bbdaff;
+    }
+
+    .payment-area {
+      margin: 10px 0 20px;
+    }
+
+    .payment-option {
+      display: inline-block;
+      margin-right: 24px;
+      margin-bottom: 12px;
+      background: rgba(30, 40, 70, 0.35);
+      backdrop-filter: blur(8px);
+      padding: 10px 18px;
+      border-radius: 40px;
+      border: 1px solid rgba(150, 200, 255, 0.2);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .payment-option.selected {
+      background: rgba(59, 130, 246, 0.5);
+      border-color: #3b82f6;
+      box-shadow: 0 0 15px #3b82f6;
+    }
+
+    .payment-option input {
+      margin-right: 6px;
+      accent-color: #3b82f6;
+      transform: scale(1.1);
+      pointer-events: none;
+    }
+
+    .payment-hint {
+      background: rgba(0, 10, 25, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 15px 22px;
+      margin: 5px 0 15px;
+      border: 1px solid #3b82f6;
+      color: #aac8ff;
+      font-size: 1.1rem;
+    }
+
+    .wallet-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .wallet-info span {
+      color: white;
+      font-weight: 600;
+      background: #1e3a8a;
+      padding: 5px 18px;
+      border-radius: 40px;
+    }
+
+    .qris-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 0;
+    }
+
+    .qris-image {
+      max-width: 250px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .qris-image:hover {
+      transform: scale(1.02);
+    }
+
+    .qris-caption {
+      color: #ffd966;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .checkout-container {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .checkout-btn {
+      flex: 1 1 auto;
+      padding: 16px 20px;
+      border: none;
+      border-radius: 60px;
+      background: rgba(59, 130, 246, 0.6);
+      backdrop-filter: blur(14px);
+      color: white;
+      font-weight: 800;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 30px #1e3a8a;
+      transition: 0.2s;
+      min-width: 180px;
+    }
+
+    .checkout-btn.qris-download {
+      background: rgba(147, 51, 234, 0.5);
+      border-color: #a78bfa;
+    }
+
+    .checkout-btn:hover {
+      background: #2563eb;
+      box-shadow: 0 0 40px #3b82f6;
+      border-color: white;
+    }
+
+    .checkout-btn.qris-download:hover {
+      background: #9333ea;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(10, 20, 40, 0.4);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3b82f6;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 500px) {
+      .hero h1 { font-size: 32px; }
+      .qris-image { max-width: 200px; }
+    }
+  </style>
 </head>
 <body>
+  <div class="galaxy-bg">
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="nebula"></div>
+  </div>
 
-<!-- Video Background -->
-<div class="video-background">
-    <video autoplay muted loop playsinline>
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-particles-and-lines-flowing-on-a-blue-background-32694-large.mp4" type="video/mp4">
-    </video>
-</div>
-<div class="overlay"></div>
+  <!-- DIALOG AWAL (INTRO) -->
+  <div class="dialog-awal" id="dialogAwal">
+    <!-- Logo bulat dengan gambar (gunakan logo.png jika ada, fallback ke inisial) -->
+    <div class="logo-circle">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%233b82f6' /%3E%3Ctext x='50' y='70' font-size='48' text-anchor='middle' fill='white' font-weight='bold'%3EKS%3C/text%3E%3C/svg%3E" alt="logo">
+    </div>
+    
+    <div class="nama">arsalwaysss</div>
+    <div class="credit">web ini dibuat oleh arsalwaysss</div>
+    
+    <div class="waktu" id="liveTime">--:--:--</div>
+    
+    <div class="tombol-dua">
+        <button class="tombol-action" id="saweriaBtn"><i class="fas fa-coffee"></i> Saweria</button>
+        <button class="tombol-action" id="saluranBtn"><i class="fab fa-whatsapp"></i> Saluran</button>
+    </div>
+    
+    <div class="tombol-kembali" id="tombolKembali">
+        <i class="fas fa-times"></i>
+    </div>
+  </div>
 
-<div class="container">
-    <h1>🗂 LIST DISKON FILE ALL DEVICE BY RIZKY STORE REAL</h1>
-
-    <div class="section">
-        <h2>📱 ANDROID</h2>
-
-        <div class="card">
-            <div class="item">HOLOGRAM BLUE INVIS GLOWAL FF ORI <span><span class="old">25K</span><span class="new">5K</span></span></div>
-            <div class="item">HOLOGRAM SENJATA FF ORI <span><span class="old">27K</span><span class="new">5K</span></span></div>
-        </div>
-
-        <div class="card">
-            <div class="item">AIMHEAD OB52 VVIP root <span><span class="old">25K</span><span class="new">10K</span></span></div>
-            <div class="item">AIMLOCK PLUS root <span><span class="old">25K</span><span class="new">10K</span></span></div>
-            <div class="item">EASY DRAG 50% VIP <span><span class="old">25K</span><span class="new">10K</span></span></div>
-            <div class="item">EASY DRAG 60% VIP <span><span class="old">25K</span><span class="new">10K</span></span></div>
-            <div class="item">EASY DRAG 70% VIP <span><span class="old">25K</span><span class="new">10K</span></span></div>
-            <div class="item">EASY DRAG 80% VIP <span><span class="old">25K</span><span class="new">10K</span></span></div>
-            <div class="item">EASY DRAG 90% VIP <span><span class="old">25K</span><span class="new">10K</span></span></div>
-        </div>
-
-        <div class="card">
-            <div class="item">Set Elite Cs <span><span class="old">10K</span><span class="new">5K</span></span></div>
-        </div>
+  <!-- KONTEN UTAMA (store) -->
+  <div class="content" id="mainContent">
+    <div class="hero glass">
+      <h1>🌀 KENZ STORE VIP</h1>
+      <p>liquid galaxy • pilih lalu checkout via WA</p>
     </div>
 
-    <div class="section">
-        <h2>🍎 IOS / IPHONE</h2>
-        <div class="card">
-            <div class="item">Hologram Blanco Pack <span><span class="old">27K</span><span class="new">5K</span></span></div>
-            <div class="item">Hologram Blue Pack <span><span class="old">27K</span><span class="new">5K</span></span></div>
-        </div>
+    <div class="tabs" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+
+    <!-- CART DENGAN QRIS LANGSUNG -->
+    <div class="cart">
+      <h2>🛒 Keranjang</h2>
+      <div id="cartList"></div>
+      <div class="total" id="total">Total: Rp 0</div>
+      
+      <div class="payment-area" id="paymentArea"></div>
+      <div id="paymentHint" class="payment-hint"></div>
+      <div id="dynamicCheckout" class="checkout-container"></div>
     </div>
+  </div>
 
-    <div class="section">
-        <h2>💳 PAYMENT</h2>
-        <div class="card" style="text-align: center; font-weight: 700; font-size: 24px; letter-spacing: 2px; padding: 30px 20px;">
-            QRIS
-        </div>
-    </div>
+  <script>
+    // ===== BAGIAN INTRO =====
+    // Waktu real-time
+    function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('id-ID', { hour12: false });
+        const liveTimeEl = document.getElementById('liveTime');
+        if (liveTimeEl) liveTimeEl.innerText = timeString;
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
 
-    <div class="section">
-        <h2>🏷 BASIC BENEFIT</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px;">
-            <span class="badge">FREE PEMASANGAN</span>
-            <span class="badge">FREE SETTING</span>
-            <span class="badge">SUPPORT 24 JAM</span>
-            <span class="badge">ANTIBAN ✅</span>
-            <span class="badge">ANTIBL ✅</span>
-            <span class="badge">AMAN SS00 ✅</span>
-            <span class="badge">NO SC ✅</span>
-            <span class="badge">NO GIMIK ✅</span>
-            <span class="badge">WORKK 💯💯</span>
-        </div>
-    </div>
+    const dialogAwal = document.getElementById('dialogAwal');
+    const mainContent = document.getElementById('mainContent');
+    const tombolKembali = document.getElementById('tombolKembali');
 
-    <div class="section">
-        <h2>🚨 NOTE</h2>
-        <div class="card note">
-            FILE HANYA MEMPERMUDAH HEADSHOT BUKAN AUTO HEADSHOT
-        </div>
-    </div>
+    tombolKembali.addEventListener('click', function() {
+        dialogAwal.classList.add('hidden');
+        setTimeout(function() {
+            mainContent.classList.add('visible');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 700); // sesuai durasi transisi
+    });
 
-    <button onclick="order()">MINAT BUY KESINI ⤵️</button>
+    document.getElementById('saweriaBtn').addEventListener('click', function() {
+        window.open('https://saweria.co/arsalwaysss', '_blank');
+    });
 
-    <footer>
-        © 2026 RIZKY XIT REAL X AFIFXSTORE REAL
-    </footer>
-</div>
+    document.getElementById('saluranBtn').addEventListener('click', function() {
+        window.open('https://whatsapp.com/channel/0029VbBhgIzKLaHsWDFWGQ35', '_blank');
+    });
 
-<script>
-function order() {
-    window.location.href = "https://wa.me/6283132365522?text=assalamu'alaikum%20bang%20saya%20mau%20beli%20file%20freefire%20yang%20vvip";
-}
-</script>
+    // ===== BAGIAN STORE (dari kode kedua, disesuaikan) =====
+    const phone = "6288268364289";
+    
+    const paymentMethods = [
+      { id: 'dana', label: 'DANA', number: '081224313572', type: 'wallet' },
+      { id: 'gopay', label: 'GOPAY', number: '081224313572', type: 'wallet' },
+      { id: 'qris', label: 'QRIS', type: 'qris', imageUrl: 'https://a.top4top.io/p_3717k180h0.jpg', number: '-' }
+    ];
 
+    let selectedPayment = null;
+
+    const data = {
+      "BEST SELLER": [
+        { name: "AIM LOCK BEST SELLER", price: 20000 },
+        { name: "AIMBOT SUPER V1", price: 25000 },
+        { name: "AIMBOT SUPER V2", price: 30000 }
+      ],
+      "HEADLOCK": [
+        { name: "HEADLOCK 65%", price: 30000 },
+        { name: "HEADLOCK 85%", price: 35000 },
+        { name: "HEADLOCK 90%", price: 40000 },
+        { name: "HEADLOCK 65% + HOLO BLUE", price: 35000 },
+        { name: "HEADLOCK 100% V1", price: 45000 },
+        { name: "HEADLOCK 100% V2", price: 50000 },
+        { name: "HEADLOCK ANOMALI", price: 60000 }
+      ],
+      "EZDRAG": [
+        { name: "EZ DRAG 2.0", price: 25000 },
+        { name: "EZ DRAG 2.1", price: 30000 },
+        { name: "EZ DRAG 2.3", price: 35000 },
+        { name: "EZ DRAG 2.10", price: 60000 },
+        { name: "EZ DRAG VIP", price: 35000 }
+      ],
+      "DRAGHS": [
+        { name: "DRAG HS 40%", price: 25000 },
+        { name: "DRAG HS 80%", price: 30000 },
+        { name: "DRAG HS 100% V1", price: 50000 },
+        { name: "DRAG HS 100% V2", price: 60000 }
+      ],
+      "AIMLOCK": [
+        { name: "AIM LOCK 80%", price: 25000 },
+        { name: "AIM LOCK 90%", price: 30000 },
+        { name: "AIM LOCK 100% V1", price: 35000 },
+        { name: "AIM LOCK 100% V2", price: 50000 },
+        { name: "AIM LOCK 100% V3", price: 60000 }
+      ],
+      "HOLOGRAM": [
+        { name: "HOLOGRAM 3D", price: 50000 },
+        { name: "HOLO BLUE V2", price: 40000 },
+        { name: "HOLO GREEN", price: 30000 },
+        { name: "HOLO SABER", price: 40000 },
+        { name: "HOLO PREMIUM", price: 50000 }
+      ],
+      "DLL": [
+        { name: "FILE GS 90%", price: 40000 },
+        { name: "FILE GS 100%", price: 45000 },
+        { name: "FILE AIM LOCK X ANTI LAG", price: 40000 },
+        { name: "MB 600%", price: 70000 },
+        { name: "MB 300%", price: 40000 },
+        { name: "GRAFIK MINICKRAFT ALL MAP", price: 40000 },
+      ]
+    };
+
+    let active = Object.keys(data)[0];
+    let cart = [];
+
+    function rupiah(n) {
+      return "Rp " + n.toLocaleString("id-ID");
+    }
+
+    function renderTabs() {
+      const tabs = document.getElementById("tabs");
+      if (!tabs) return;
+      tabs.innerHTML = "";
+      Object.keys(data).forEach(cat => {
+        let btn = document.createElement("button");
+        btn.textContent = cat;
+        btn.className = (cat === active ? "active" : "");
+        btn.onclick = () => {
+          active = cat;
+          renderTabs();
+          renderProducts();
+        };
+        tabs.appendChild(btn);
+      });
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById("grid");
+      if (!grid) return;
+      grid.innerHTML = "";
+      data[active].forEach((p, i) => {
+        let card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${p.name}</h3>
+          <div class="price">${rupiah(p.price)}</div>
+          <button class="add" onclick="addToCart(${i})">Tambah ke keranjang</button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    window.addToCart = function(i) {
+      cart.push(data[active][i]);
+      renderCart();
+    }
+
+    function renderCart() {
+      const list = document.getElementById("cartList");
+      if (!list) return;
+      list.innerHTML = "";
+      cart.forEach(item => {
+        let d = document.createElement("div");
+        d.innerHTML = `${item.name} - ${rupiah(item.price)}`;
+        list.appendChild(d);
+      });
+      let total = cart.reduce((a, b) => a + b.price, 0);
+      document.getElementById("total").innerText = "Total: " + rupiah(total);
+    }
+
+    function renderPaymentOptions() {
+      const area = document.getElementById("paymentArea");
+      if (!area) return;
+      area.innerHTML = "";
+
+      paymentMethods.forEach(m => {
+        const label = document.createElement("label");
+        label.className = `payment-option ${selectedPayment?.id === m.id ? 'selected' : ''}`;
+        
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "paymentMethod";
+        radio.value = m.id;
+        radio.checked = (selectedPayment?.id === m.id);
+        
+        label.onclick = () => setSelectedPayment(m);
+        
+        label.appendChild(radio);
+        label.appendChild(document.createTextNode(` ${m.label}`));
+        area.appendChild(label);
+      });
+    }
+
+    function setSelectedPayment(method) {
+      selectedPayment = method;
+      renderPaymentOptions();
+      updateHintAndButtons();
+    }
+
+    function updateHintAndButtons() {
+      const hintDiv = document.getElementById("paymentHint");
+      const checkoutContainer = document.getElementById("dynamicCheckout");
+      
+      if (!selectedPayment) {
+        hintDiv.innerHTML = `💡 Pilih metode pembayaran`;
+        checkoutContainer.innerHTML = `<button class="checkout-btn" onclick="checkoutWithWA()">✨ Checkout WhatsApp</button>`;
+        return;
+      }
+
+      if (selectedPayment.type === 'wallet') {
+        hintDiv.innerHTML = `
+          <div class="wallet-info">
+            <span>${selectedPayment.label}</span> 
+            <span>Nomor tujuan: <strong>${selectedPayment.number}</strong></span>
+          </div>
+        `;
+        
+        checkoutContainer.innerHTML = `<button class="checkout-btn" onclick="checkoutWithWA('${selectedPayment.label}')">✨ Checkout via WA (${selectedPayment.label})</button>`;
+      
+      } else { // QRIS
+        hintDiv.innerHTML = `
+          <div class="qris-container">
+            <img src="${selectedPayment.imageUrl}" alt="QRIS Pembayaran" class="qris-image" onclick="window.open('${selectedPayment.imageUrl}', '_blank')" style="cursor: pointer;">
+            <div class="qris-caption">👆 Klik gambar untuk memperbesar | Scan QRIS di atas</div>
+          </div>
+        `;
+        
+        checkoutContainer.innerHTML = `
+          <button class="checkout-btn qris-download" onclick="window.open('${selectedPayment.imageUrl}', '_blank')">🔍 Perbesar QRIS</button>
+          <button class="checkout-btn" onclick="checkoutWithWA('QRIS')">📱 Lanjut ke WhatsApp</button>
+        `;
+      }
+    }
+
+    window.checkoutWithWA = function(paymentLabel = null) {
+      if (cart.length === 0) {
+        alert("Keranjang kosong");
+        return;
+      }
+
+      let payMethod = paymentLabel || (selectedPayment ? selectedPayment.label : null);
+      if (!payMethod) {
+        alert("Pilih pembayaran dulu");
+        return;
+      }
+
+      let msg = "Halo bang saya mau order:%0A";
+      cart.forEach((item, i) => {
+        msg += `${i + 1}. ${item.name} - ${rupiah(item.price)}%0A`;
+      });
+
+      let total = cart.reduce((a, b) => a + b.price, 0);
+      msg += `%0ATotal: ${rupiah(total)}%0A`;
+      msg += `Pembayaran: ${payMethod}`;
+      
+      if (selectedPayment?.type === 'qris') {
+        msg += ` (saya sudah scan QRIS)`;
+      }
+
+      window.open(`https://wa.me/${phone}?text=${msg}`);
+    }
+
+    function initStore() {
+      renderTabs();
+      renderProducts();
+      renderPaymentOptions();
+      updateHintAndButtons();
+    }
+
+    initStore();
+  </script>
 </body>
 </html>
